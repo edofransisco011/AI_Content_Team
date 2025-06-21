@@ -29,8 +29,9 @@ class ImageAgent:
         # Get the LLM configuration
         llm_config = get_llm_config()
 
-        # The ImageGen tool uses the Dashscope API, so we pass it the key to be safe.
-        tools = [ImageGen(api_key=os.getenv("DASHSCOPE_API_KEY"))]
+        # THE FIX: Initialize ImageGen without arguments. It automatically finds the
+        # DASHSCOPE_API_KEY from the environment, which we loaded above.
+        tools = [ImageGen()]
 
         # Initialize the Assistant agent
         self.agent = Assistant(
