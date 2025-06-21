@@ -1,5 +1,6 @@
 import gradio as gr
 from main import ContentTeam
+import time
 
 # Initialize our ContentTeam once when the app starts
 print("Starting the AI Content Team application...")
@@ -10,15 +11,21 @@ def generate_article(topic):
     """
     The main function that Gradio will call. 
     It takes a topic, runs the agent team, and returns the result.
+    This is a generator function to provide real-time UI updates.
     """
     if not topic:
-        return "Please provide a topic."
+        yield "Please provide a topic."
+        return
+
+    # Immediately yield a status update to the user.
+    yield "🤖 Agents are assembling... Generating outline."
     
     # Run the content creation process
-    # This will print progress to the console and return the final markdown
+    # This will print detailed progress to the console
     final_article_md = content_team.run(topic)
     
-    return final_article_md
+    # Yield the final result to the UI
+    yield final_article_md
 
 # Define the Gradio interface
 with gr.Blocks(theme=gr.themes.Soft()) as demo:
@@ -36,6 +43,7 @@ with gr.Blocks(theme=gr.themes.Soft()) as demo:
     output_markdown = gr.Markdown(label="Generated Article")
 
     # Define the button's click behavior
+    # Gradio automatically handles generator functions for streaming output.
     submit_button.click(
         fn=generate_article, 
         inputs=topic_input, 
