@@ -4,14 +4,6 @@ An autonomous multi-agent system built with the Qwen-Agent framework that resear
 
 ---
 
-### 🎥 Live Demo / Video
-
-*(**Recommendation:** Record a short screen capture of you using the Gradio UI. Upload it to YouTube or another platform and embed the link or GIF here. This is the most effective way to showcase your project.)*
-
-**[Link to Live Demo or a GIF of the app in action]**
-
----
-
 ### ✨ Key Features
 
 * **Multi-Agent Collaboration:** Utilizes a team of four specialized AI agents (Outliner, Writer, Reviewer, Image Generator) that work in sequence to produce a final article.
