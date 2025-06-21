@@ -33,7 +33,7 @@ def get_llm_config():
     # with the qwen-agent framework. We are selecting qwen-long because content
     # creation can benefit from a larger context window.
     return {
-        'model': 'qwen-plus-2025-01-25',
+        'model': 'qwen-max-latest',
         'model_server': 'https://dashscope-intl.aliyuncs.com/compatible-mode/v1',
         'api_key': api_key,
     }
