@@ -1,0 +1,5 @@
+qwen-agent
+python-dotenv
+gradio
+# Add a specific dependency required by qwen-agent on Windows for asyncio
+aiohttp
